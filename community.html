@@ -13,249 +13,460 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-            line-height: 1.6;
-            color: #000000;
-            background-color: #fff;
+            line-height: 1.7;
+            color: #333;
+            background-color: #f8f9fa;
             padding: 20px;
-            max-width: 800px;
+        }
+
+        .container {
+            max-width: 700px;
             margin: 0 auto;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
         }
 
         @media (prefers-color-scheme: dark) {
             body {
-                background-color: #1a1a1a;
+                background-color: #0d0d0d;
                 color: #e0e0e0;
             }
             
-            h1, h2 {
+            .container {
+                background-color: #1a1a1a;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            }
+            
+            h1 {
                 color: #ffffff;
             }
             
             .section {
-                background-color: #2a2a2a;
-                border-color: #3a3a3a;
+                border-color: #2a2a2a;
+            }
+            
+            .section.welcome {
+                background: linear-gradient(135deg, #1e3a5f 0%, #2d5a8a 100%);
+            }
+            
+            .section.prohibited {
+                background: linear-gradient(135deg, #4a1a1a 0%, #6a2a2a 100%);
+            }
+            
+            .section.solution {
+                background: linear-gradient(135deg, #1a4a1a 0%, #2a6a2a 100%);
+            }
+            
+            .section-icon {
+                background-color: rgba(255, 255, 255, 0.15);
             }
             
             .section-title {
                 color: #ffffff;
             }
             
-            .positive-list li::before {
+            .intro-text {
+                color: rgba(255, 255, 255, 0.95);
+            }
+            
+            .positive-list li,
+            .negative-list li,
+            .solution-list li {
+                color: rgba(255, 255, 255, 0.9);
+            }
+            
+            .highlight {
                 color: #5AC8FA;
             }
             
-            .negative-list li::before {
-                color: #ff3b30;
+            .back-to-top {
+                background-color: #2d5a8a;
             }
+            
+            .back-to-top:hover {
+                background-color: #3d6a9a;
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #007AFF 0%, #0051D5 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
         }
 
         h1 {
-            font-size: 28px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #000000;
-            text-align: center;
-            padding: 20px 0;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 8px;
         }
 
         .subtitle {
-            text-align: center;
-            color: #666;
             font-size: 14px;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #e0e0e0;
+            opacity: 0.9;
+            margin-bottom: 15px;
         }
 
-        @media (prefers-color-scheme: dark) {
-            .subtitle {
-                color: #999;
-                border-bottom-color: #3a3a3a;
-            }
+        .effective-date {
+            font-size: 13px;
+            opacity: 0.85;
+            padding-top: 10px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            display: inline-block;
+            margin-top: 10px;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        .content {
+            padding: 30px;
         }
 
         .section {
-            margin-bottom: 30px;
-            padding: 20px;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            border: 1px solid #e0e0e0;
+            margin-bottom: 25px;
+            padding: 30px;
+            border-radius: 12px;
+            border-bottom: 1px solid #e9ecef;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .section.welcome {
+            background: linear-gradient(135deg, #007AFF 0%, #0051D5 100%);
+            color: white;
+        }
+
+        .section.prohibited {
+            background: linear-gradient(135deg, #FF3B30 0%, #D5002B 100%);
+            color: white;
+        }
+
+        .section.solution {
+            background: linear-gradient(135deg, #34C759 0%, #2AAA44 100%);
+            color: white;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .section-icon {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
         }
 
         .section-title {
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 15px;
-            color: #000000;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #007AFF;
+            font-size: 22px;
+            font-weight: 700;
+            color: white;
+            flex: 1;
         }
 
         .section-content {
             font-size: 16px;
             line-height: 1.8;
-            color: #000000;
         }
 
-        @media (prefers-color-scheme: dark) {
-            .section-content {
-                color: #d0d0d0;
-            }
-        }
-
-        .section-content p {
-            margin-bottom: 12px;
+        .intro-text {
+            margin-bottom: 20px;
+            font-size: 17px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.95);
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            border-left: 4px solid rgba(255, 255, 255, 0.3);
         }
 
         .positive-list,
-        .negative-list {
+        .negative-list,
+        .solution-list {
             list-style: none;
             margin-top: 15px;
-            margin-bottom: 15px;
         }
 
         .positive-list li,
-        .negative-list li {
-            margin-bottom: 12px;
-            padding-left: 30px;
+        .negative-list li,
+        .solution-list li {
+            margin-bottom: 15px;
+            padding: 15px;
+            padding-left: 50px;
             position: relative;
             line-height: 1.6;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            transition: all 0.2s;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .positive-list li:hover,
+        .negative-list li:hover,
+        .solution-list li:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            transform: translateX(5px);
         }
 
         .positive-list li::before {
             content: "✓";
             position: absolute;
-            left: 0;
-            color: #34C759;
+            left: 15px;
+            color: rgba(255, 255, 255, 0.9);
             font-weight: bold;
-            font-size: 18px;
+            font-size: 22px;
+            top: 50%;
+            transform: translateY(-50%);
         }
 
         .negative-list li::before {
             content: "✗";
             position: absolute;
-            left: 0;
-            color: #FF3B30;
+            left: 15px;
+            color: rgba(255, 255, 255, 0.9);
             font-weight: bold;
-            font-size: 18px;
+            font-size: 22px;
+            top: 50%;
+            transform: translateY(-50%);
         }
 
-        .intro-text {
-            margin-bottom: 15px;
-            font-size: 17px;
-            font-weight: 500;
-            color: #000000;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            .intro-text {
-                color: #ffffff;
-            }
-        }
-
-        .solution-list {
-            margin-left: 20px;
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
-
-        .solution-list li {
-            margin-bottom: 8px;
-            padding-left: 5px;
+        .solution-list li::before {
+            content: "→";
+            position: absolute;
+            left: 15px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            font-size: 22px;
+            top: 50%;
+            transform: translateY(-50%);
         }
 
         .highlight {
-            font-weight: bold;
-            color: #007AFF;
+            font-weight: 700;
+            color: white;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 2px 8px;
+            border-radius: 4px;
         }
 
-        @media (prefers-color-scheme: dark) {
-            .highlight {
-                color: #5AC8FA;
-            }
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #007AFF;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            border: none;
+            font-size: 24px;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: #0051D5;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 122, 255, 0.4);
         }
 
         .footer {
             text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #e0e0e0;
-            color: #999;
-            font-size: 12px;
+            padding: 30px;
+            background-color: #f8f9fa;
+            color: #666;
+            font-size: 13px;
         }
 
         @media (prefers-color-scheme: dark) {
             .footer {
-                border-top-color: #3a3a3a;
-                color: #666;
+                background-color: #0d0d0d;
+                color: #999;
             }
+        }
+
+        .footer p {
+            margin: 5px 0;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #5E5CE6 0%, #4A48D5 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .cta-section h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .cta-section p {
+            font-size: 15px;
+            opacity: 0.9;
         }
 
         @media (max-width: 600px) {
             body {
-                padding: 15px;
+                padding: 0;
+            }
+
+            .container {
+                border-radius: 0;
+            }
+
+            .header {
+                padding: 30px 20px;
             }
 
             h1 {
-                font-size: 24px;
+                font-size: 26px;
+            }
+
+            .content {
+                padding: 20px;
             }
 
             .section {
-                padding: 15px;
+                padding: 20px;
             }
 
             .section-title {
-                font-size: 18px;
+                font-size: 19px;
             }
 
-            .section-content {
-                font-size: 15px;
+            .section-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 22px;
+            }
+
+            .positive-list li,
+            .negative-list li,
+            .solution-list li {
+                padding-left: 45px;
+            }
+
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
             }
         }
     </style>
 </head>
 <body>
-    <h1>위링크(WeLink) 커뮤니티 가이드라인</h1>
-    <p class="subtitle">사용자용</p>
+    <div class="container">
+        <div class="header">
+            <h1>위링크(WeLink) 커뮤니티 가이드라인</h1>
+            <p class="subtitle">사용자용</p>
+            <div class="effective-date">시행일: 2025년 1월 1일</div>
+        </div>
 
-    <div class="section">
-        <h2 class="section-title">위링크 커뮤니티는 이런 공간입니다</h2>
-        <div class="section-content">
-            <p class="intro-text">위링크 커뮤니티는 프로젝트 단위로 협업하는 건강한 공간입니다.</p>
-            <ul class="positive-list">
-                <li>프로젝트 단위로 협업하는 공간</li>
-                <li>서로의 작업을 존중하는 공간</li>
-                <li>결과물을 완성하는 것을 목표로 하는 공간</li>
-            </ul>
+        <div class="content">
+            <div class="section welcome">
+                <div class="section-header">
+                    <div class="section-icon">🌟</div>
+                    <h2 class="section-title">위링크 커뮤니티는 이런 공간입니다</h2>
+                </div>
+                <div class="section-content">
+                    <p class="intro-text">위링크 커뮤니티는 프로젝트 단위로 협업하는 건강한 공간입니다.</p>
+                    <ul class="positive-list">
+                        <li>프로젝트 단위로 협업하는 공간</li>
+                        <li>서로의 작업을 존중하는 공간</li>
+                        <li>결과물을 완성하는 것을 목표로 하는 공간</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section prohibited">
+                <div class="section-header">
+                    <div class="section-icon">⚠️</div>
+                    <h2 class="section-title">다음과 같은 행동은 금지됩니다</h2>
+                </div>
+                <div class="section-content">
+                    <ul class="negative-list">
+                        <li>욕설, 비하, 차별적 표현</li>
+                        <li>성적·폭력적 콘텐츠 공유</li>
+                        <li>협업과 무관한 스팸/광고</li>
+                        <li>타인의 작업물 무단 사용</li>
+                        <li>반복적인 협업 방해 행위</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section solution">
+                <div class="section-header">
+                    <div class="section-icon">🛡️</div>
+                    <h2 class="section-title">문제가 발생했을 경우</h2>
+                </div>
+                <div class="section-content">
+                    <ul class="solution-list">
+                        <li><span class="highlight">채팅 내 차단 기능</span>을 사용할 수 있습니다</li>
+                        <li><span class="highlight">서비스 내 문의/신고 기능</span>을 통해 운영자에게 알릴 수 있습니다</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <h3>함께 만드는 건강한 커뮤니티</h3>
+                <p>모두가 존중받는 협업 환경을 위해 가이드라인을 지켜주세요</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>위링크(WeLink)</strong></p>
+            <p>최종 수정일: 2025년 1월</p>
         </div>
     </div>
 
-    <div class="section">
-        <h2 class="section-title">다음과 같은 행동은 금지됩니다</h2>
-        <div class="section-content">
-            <ul class="negative-list">
-                <li>욕설, 비하, 차별적 표현</li>
-                <li>성적·폭력적 콘텐츠 공유</li>
-                <li>협업과 무관한 스팸/광고</li>
-                <li>타인의 작업물 무단 사용</li>
-                <li>반복적인 협업 방해 행위</li>
-            </ul>
-        </div>
-    </div>
+    <button class="back-to-top" id="backToTop" aria-label="맨 위로">↑</button>
 
-    <div class="section">
-        <h2 class="section-title">문제가 발생했을 경우</h2>
-        <div class="section-content">
-            <ul class="solution-list">
-                <li><span class="highlight">채팅 내 차단 기능</span>을 사용할 수 있습니다.</li>
-                <li><span class="highlight">서비스 내 문의/신고 기능</span>을 통해 운영자에게 알릴 수 있습니다.</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="footer">
-        <p>위링크(WeLink) 커뮤니티 가이드라인</p>
-        <p>최종 수정일: 2025년 1월</p>
-    </div>
+    <script>
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
 </body>
 </html>
